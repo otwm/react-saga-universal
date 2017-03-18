@@ -19,11 +19,11 @@ var config = {
   target: 'node',
 
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx'],
-    modules: [path.resolve(__dirname), 'node_modules', 'app', 'app/redux'],
+    extensions: [ '.js', '.jsx'],
+    modules: [path.resolve(__dirname), 'node_modules'],
   },
 
-  entry: './src/server.tsx',
+  entry: './src/server.jsx',
 
   output: {
     path: path.resolve('./build/public'),
@@ -33,7 +33,8 @@ var config = {
   },
 
   module: {
-    loaders: [{
+    loaders: [
+      {
         test: /\.(jpe?g|png|gif)$/i,
         loader: 'url-loader?limit=1000&name=images/[hash].[ext]'
       },
@@ -44,11 +45,6 @@ var config = {
       {
         test: /\.jsx$/,
         loader: 'babel-loader'
-      },
-      {
-        test: /\.tsx?$/,
-        loader: 'awesome-typescript-loader',
-        exclude: /node_modules/
       },
       {
         test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,

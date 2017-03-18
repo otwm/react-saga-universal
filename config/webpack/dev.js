@@ -8,18 +8,17 @@ var ManifestPlugin = require('webpack-manifest-plugin');
 var CheckerPlugin = require('awesome-typescript-loader').CheckerPlugin;
 
 var config = {
-  // Enable sourcemaps for debugging webpack's output.
   devtool: 'source-map',
 
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx'],
-    modules: [path.resolve(__dirname), 'node_modules', 'app', 'app/redux'],
+    extensions: ['.js', '.jsx'],
+    modules: [path.resolve(__dirname), 'node_modules'],
   },
 
   entry: {
     app: [
       'webpack-hot-middleware/client?reload=true',
-      './src/client.tsx',
+      './src/client.jsx',
       './src/vendor/main.ts'
     ]
   },
@@ -32,15 +31,7 @@ var config = {
   },
 
   module: {
-    rules: [{
-        enforce: 'pre',
-        test: /\.tsx?$/,
-        loader: 'tslint-loader'
-      },
-      {
-        test: /\.tsx?$/,
-        loader: 'react-hot-loader!awesome-typescript-loader'
-      },
+    rules: [
       {
         test: /\.jsx$/,
         loader: 'babel-loader'
