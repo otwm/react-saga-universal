@@ -102,21 +102,7 @@ module.exports = function (config) {
       },
 
       plugins: [
-        new webpack.LoaderOptionsPlugin({
-          options: {
-            tslint: {
-              failOnHint: true
-            },
-            postcss: function () {
-              return [
-                postcssNext(),
-                postcssAssets({
-                  relative: true
-                }),
-              ];
-            },
-          }
-        }),
+        new webpack.LoaderOptionsPlugin(),
         new webpack.IgnorePlugin(/^fs$/),
         new webpack.IgnorePlugin(/^react\/addons$/),
         new webpack.NoEmitOnErrorsPlugin(),

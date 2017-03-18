@@ -101,23 +101,8 @@ var config = {
 
   plugins: [
     new webpack.LoaderOptionsPlugin({
-      debug: true,
-      options: {
-        tslint: {
-          failOnHint: true
-        },
-        postcss: function () {
-          return [
-            stylelint({
-              files: '../../src/app/*.css'
-            }),
-            postcssNext(),
-            postcssAssets({
-              relative: true
-            }),
-          ];
-        },
-      }
+      debug: true
+
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
