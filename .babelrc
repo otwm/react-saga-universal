@@ -1,3 +1,21 @@
 {
-	"presets": [ "react", "es2015", "stage-0" ]
+	"presets": [
+		"react-app",
+		"stage-0"
+	],
+	"plugins": [
+		"transform-decorators-legacy",
+		[
+			"module-resolver",
+			{
+				"root": [
+					"./src"
+				],
+				"alias": {
+					"util": "./src/client/util",
+					"client":"./src/client"
+				}
+			}
+		]
+	]
 }

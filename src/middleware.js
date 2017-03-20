@@ -1,12 +1,25 @@
-import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { match, RouterContext } from 'react-router';
+import { RouterContext } from 'react-router';
 import reducers from './reducers';
-import routes from './routes';
+// import routes from './routes';
+
+import 'isomorphic-fetch';
+import * as React from 'react';
+import { createMemoryHistory, match } from 'react-router';
+import { ReduxAsyncConnect, loadOnServer } from 'redux-connect';
+import configureStore from './client/common/store';
+import routes from './client/common/routes';
+// import Html from './Html';
 
 export default (req, res) => {
+  const location = req.url;
+  const memoryHistory = createMemoryHistory(req.originalUrl);
+  const { store, history } = configureStore(memoryHistory);
+
+  routes()
+
 	match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
 		if(error) {
 			res.status(500).send(error.message);
