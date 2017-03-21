@@ -1,5 +1,4 @@
-import { takeLatest } from 'redux-saga';
-import { put, call } from 'redux-saga/effects';
+import { put, call, takeLatest } from 'redux-saga/effects';
 import * as actions from './actions';
 import * as actionTypes from './action-types';
 import api from './api';

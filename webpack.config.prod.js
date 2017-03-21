@@ -12,6 +12,11 @@ module.exports = {
 		publicPath: '/'
 	},
   resolve:{
+    modulesDirectories: [
+      path.resolve(path.join(__dirname, 'web_modules')),
+      path.resolve(path.join(__dirname, 'node_modules')),
+      path.resolve(path.join(__dirname, 'src')),
+    ],
     extensions: ['.js', '.json', '.jsx', ''],
   },
 	plugins: [

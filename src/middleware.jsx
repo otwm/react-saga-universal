@@ -22,8 +22,9 @@ const renderHTML = (markup, store) => {
 							<title>My Universal App</title>
 						</header>
 						<body>
-							<div id='app'></div>
-							<script src='bundle.js'></script>
+							<div id='app'>${markup}</div>
+							${initialState}
+              <script src='bundle.js'></script>
 						</body>
 					</html>
 				`;
