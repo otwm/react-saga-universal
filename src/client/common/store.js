@@ -4,7 +4,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { browserHistory } from 'react-router';
 import { syncHistoryWithStore, routerMiddleware } from 'react-router-redux';
 import rootReducer from './reducers';
-// import rootSaga from './sagas';
+import rootSaga from './sagas';
 
 export default function configureStore(history, initialState) {
   const historyTemp = history || browserHistory;
@@ -31,6 +31,6 @@ export default function configureStore(history, initialState) {
     });
   }
 
-  // store.runSaga = sagaMiddleware.run(rootSaga);
+  store.runSaga = sagaMiddleware.run(rootSaga);
   return { store, history: historyResult };
 }

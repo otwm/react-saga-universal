@@ -1,20 +1,37 @@
 import React from 'react';
-import { render } from 'react-dom';
-import { createStore } from 'redux';
+import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router, browserHistory } from 'react-router';
-import { syncHistoryWithStore } from 'react-router-redux';
-import reducers from './common/reducers';
-import routes from '/client/common/routes';
+import { Router } from 'react-router';
+import configureStore from 'client/common/store';
+import routes from 'client/common/routes';
+// import './index.css';
 
-const store = createStore(reducers);
-const history = syncHistoryWithStore(browserHistory, store);
-
-render(
-	<Provider store={store}>
-		<Router history={history}>
-			{ routes }
-		</Router>
-	</Provider>,
-	document.getElementById('app')
+const { store, history } = configureStore(
+  null,
+  window.INITIAL_STATE,
 );
+
+function Root() {
+  return (
+		<div>
+			<Provider store={store}>
+				<Router history={history} routes={routes} />
+			</Provider>
+		</div>
+  );
+}
+
+function RootWithStore() {
+  return (
+		<Root history={history} store={store} />
+  );
+}
+
+const render = () => {
+  ReactDOM.render(
+		<RootWithStore />,
+    document.getElementById('app'),
+  );
+};
+
+render(RootWithStore);
