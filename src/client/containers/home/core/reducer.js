@@ -1,7 +1,7 @@
 const initialState = [
   { id: 1, text: 'Todo 1', checked: false },
   { id: 2, text: 'Todo 2', checked: false },
-  { id: 3, text: 'Todo 3', checked: false }
+  { id: 3, text: 'Todo 3', checked: false },
 ];
 
 const todos = (state = initialState, action) => {
@@ -19,10 +19,4 @@ const todos = (state = initialState, action) => {
 };
 
 export default todos;
-
-
-
-
-
-
 

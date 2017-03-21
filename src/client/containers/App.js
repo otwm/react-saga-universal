@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
-if(process.env.WEBPACK) require('./App.scss');
+if (process.env.WEBPACK) require('./App.scss');
 
 function App(props) {
   return (

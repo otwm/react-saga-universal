@@ -13,23 +13,23 @@ const { store, history } = configureStore(
 
 function Root() {
   return (
-		<div>
-			<Provider store={store}>
-				<Router history={history} routes={routes} />
-			</Provider>
-		</div>
+    <div>
+      <Provider store={store}>
+        <Router history={history} routes={routes} />
+      </Provider>
+    </div>
   );
 }
 
 function RootWithStore() {
   return (
-		<Root history={history} store={store} />
+    <Root history={history} store={store} />
   );
 }
 
 const render = () => {
   ReactDOM.render(
-		<RootWithStore />,
+    <RootWithStore />,
     document.getElementById('app'),
   );
 };

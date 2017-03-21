@@ -2,32 +2,32 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { toggleTodo } from '../core/actions';
-if(process.env.WEBPACK) require('./index.scss');
+if (process.env.WEBPACK) require('./index.scss');
 
 class Home extends Component {
-	render() {
-		const { dispatch, todos } = this.props;
+  render() {
+    const { dispatch, todos } = this.props;
 
-		return (
-			<div className='home'>
-				<div>This is home</div>
-				<br />
-				{todos.map((todo) => (
-					<div key={ todo.id }>
-						<span style={ (todo.checked) ? { textDecoration: 'line-through' } : {} }>{ todo.text } </span>
-						<button onClick={() => dispatch(toggleTodo(todo.id))}>Toggle</button>
-					</div>
+    return (
+      <div className="home">
+        <div>This is home</div>
+        <br />
+        {todos.map(todo => (
+          <div key={todo.id}>
+            <span style={(todo.checked) ? { textDecoration: 'line-through' } : {}}>{ todo.text } </span>
+            <button onClick={() => dispatch(toggleTodo(todo.id))}>Toggle</button>
+          </div>
 				))}
-				<br/>
-				<Link to='/page'>
-					<button>Go to page</button>
-				</Link>
-			</div>
-		);
-	}
+        <br />
+        <Link to="/page">
+          <button>Go to page</button>
+        </Link>
+      </div>
+    );
+  }
 }
 
 export default connect((state) => {
-	const { todos } = state;
-	return { todos };
+  const { todos } = state;
+  return { todos };
 })(Home);
