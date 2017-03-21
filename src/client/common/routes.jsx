@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
-import Home from '/client/containers/home/components/Home';
+import Home from 'client/containers/home/components/Home';
 import PageNotFound from 'client/molecules/PageNotFound';
 import App from 'client/containers/App';
 import Page from '../containers/page';

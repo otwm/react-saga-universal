@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import { toggleTodo } from '../core/actions';
+import toggleTodo from '../core/actions';
 if (process.env.WEBPACK) require('./index.scss');
 
 class Home extends Component {

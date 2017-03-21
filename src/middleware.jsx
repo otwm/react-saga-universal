@@ -1,12 +1,10 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server';
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import reducers from '/client/common/reducers';
-import routes from './client/common/routes';
-import { createMemoryHistory, match, RouterContext } from 'react-router';
-import configureStore from './client/common/store';
+import { createMemoryHistory, match } from 'react-router';
 import { ReduxAsyncConnect, loadOnServer } from 'redux-connect';
+import routes from './client/common/routes';
+import configureStore from './client/common/store';
 
 const renderHTML = (markup, store) => {
   let result;
@@ -16,7 +14,7 @@ const renderHTML = (markup, store) => {
       charSet="UTF-8"
     />
   );
-  if (process.env.NODE_ENV == 'development') {
+  if (process.env.NODE_ENV === 'development') {
     result = `
 					<!doctype html>
 					<html>
@@ -72,38 +70,6 @@ export default (req, res) => {
       })
         .catch(asyncRouterError => console.log(asyncRouterError));
 
-      // if (process.env.NODE_ENV == 'development') {
-      //   res.status(200).send(`
-				// 	<!doctype html>
-				// 	<html>
-				// 		<header>
-				// 			<title>My Universal App</title>
-				// 		</header>
-				// 		<body>
-				// 			<div id='app'></div>
-				// 			<script src='bundle.js'></script>
-				// 		</body>
-				// 	</html>
-				// `);
-      // } else if (process.env.NODE_ENV == 'production') {
-      //   res.status(200).send(`
-				// 	<!doctype html>
-				// 	<html>
-				// 		<header>
-				// 			<title>My Universal App</title>
-				// 			<link rel='stylesheet' href='bundle.css'>
-				// 		</header>
-				// 		<body>
-				// 			<div id='app'>${renderToString(
-      //     <Provider store={createStore(reducers)}>
-      //       <RouterContext {...renderProps} />
-      //     </Provider>
-      //   )}</div>
-				// 			<script src='bundle.js'></script>
-				// 		</body>
-				// 	</html>
-				// `);
-      // }
     } else {
       res.status(404).send('Not found');
     }
