@@ -40,6 +40,13 @@ module.exports = {
 		new ExtractTextPlugin('bundle.css')
 	],
 	module: {
+    preLoaders: [
+      {
+        test: /\.(js|jsx)$/,
+        loader: 'eslint',
+        include: './src',
+      },
+    ],
 		loaders: [
 			{
         test: /\.(js|jsx)$/,
