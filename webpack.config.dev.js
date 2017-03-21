@@ -5,7 +5,7 @@ const autoprefixer = require('autoprefixer');
 module.exports = {
 	entry: [
 		'webpack-hot-middleware/client',
-		path.resolve(__dirname, 'src')
+		path.resolve(__dirname, 'src/client/index')
 	],
 	output: {
 		path: path.resolve(__dirname, 'src'),

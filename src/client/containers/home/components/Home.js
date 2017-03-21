@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import Header from '../header';
+import Header from '../../header';
 import { toggleTodo } from '/actions/todos';
 if(process.env.WEBPACK) require('./index.scss');
 
@@ -22,7 +22,7 @@ class Home extends Component {
 				))}
 				<br/>
 				<Link to='/page'>
-					<button>Go to page11</button>
+					<button>Go to page</button>
 				</Link>
 			</div>
 		);
