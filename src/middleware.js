@@ -2,7 +2,7 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import reducers from './reducers';
+import reducers from '/client/common/reducers';
 import routes from './client/common/routes';
 import { createMemoryHistory, match , RouterContext} from 'react-router';
 import configureStore from './client/common/store';
