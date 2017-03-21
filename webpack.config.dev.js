@@ -12,6 +12,9 @@ module.exports = {
 		filename: 'bundle.js',
 		publicPath: '/'
 	},
+	resolve:{
+    extensions: ['.js', '.json', '.jsx', ''],
+	},
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NoErrorsPlugin(),
@@ -25,7 +28,7 @@ module.exports = {
 	module: {
 		loaders: [
 			{
-				test: /\.js$/,
+				test: /\.(js|jsx)$/,
 				loader: 'babel',
 				include: path.resolve(__dirname, 'src'),
 				query: {
