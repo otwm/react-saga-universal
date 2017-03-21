@@ -3,4 +3,4 @@ const toggleTodo = id => ({
   id,
 });
 
-export default toggleTodo ;
+export default toggleTodo;

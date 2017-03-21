@@ -3,7 +3,7 @@ const initialState = [
   { id: 2, text: 'Todo 2', checked: false },
   { id: 3, text: 'Todo 3', checked: false },
 ];
-
+/* eslint-disable no-param-reassign */
 const todos = (state = initialState, action) => {
   switch (action.type) {
     case 'TOGGLE_TODO':
