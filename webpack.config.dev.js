@@ -3,8 +3,10 @@ const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
-	entry: [
+  devtool: 'cheap-module-source-map',
+  entry: [
 		'webpack-hot-middleware/client',
+		'babel-polyfill',
 		path.resolve(__dirname, 'src/client/index')
 	],
 	output: {

@@ -52,6 +52,8 @@
     "url": "https://github.com/justinjung04/universal-boilerplate.git"
   },
   "dependencies": {
+    "babel-polyfill": "^6.23.0",
+    "immutable": "^3.8.1",
     "redux-connect": "^5.0.0",
     "redux-saga": "^0.14.3"
   }
