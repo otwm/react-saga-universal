@@ -1,0 +1,6 @@
+export const LIST_ROOMS = 'LIST_ROOMS';
+export const LOAD_ROOM = 'LOAD_ROOM';
+export const LIST_ROOMS_SUCCESS = 'LIST_ROOMS_SUCCESS';
+export const LOAD_ROOM_SUCCESS = 'LOAD_ROOM_SUCCESS';
+export const LIST_ROOMS_FAIL = 'LIST_ROOMS_FAIL';
+export const LOAD_ROOM_FAIL = 'LOAD_ROOM_FAIL';

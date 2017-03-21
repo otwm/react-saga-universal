@@ -11,6 +11,9 @@ module.exports = {
 		filename: 'bundle.js',
 		publicPath: '/'
 	},
+  resolve:{
+    extensions: ['.js', '.json', '.jsx', ''],
+  },
 	plugins: [
 		new webpack.DefinePlugin({
 			'process.env': {
@@ -33,8 +36,8 @@ module.exports = {
 	],
 	module: {
 		loaders: [
-			{ 
-				test: /\.js$/,
+			{
+        test: /\.(js|jsx)$/,
 				loader: 'babel',
 				include: path.resolve(__dirname, 'src')
 			},
