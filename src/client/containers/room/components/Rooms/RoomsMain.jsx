@@ -2,9 +2,18 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { List } from 'immutable';
+import {
+  asyncConnect,
+} from 'redux-connect';
 import { actions } from 'client/containers/room/roomMain';
 import Room from './Room';
 
+@asyncConnect([{
+  key: 'rooms',
+  promise: ({ store: { dispatch } }) => {
+    dispatch(actions.listRooms());
+  },
+}])
 @connect(
   ({ rooms }) => ({ rooms: rooms.toJSON ? rooms.toJSON() : rooms }),
   dispatch => ({
