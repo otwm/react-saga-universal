@@ -46,7 +46,22 @@ module.exports = {
 				test: /\.scss/,
 				loader: 'style!css!sass!postcss',
 				include: path.resolve(__dirname, 'src')
-			}
+			},
+      {
+        test: /\.css$/,
+        loader: 'style!css?importLoaders=1!postcss'
+      },
+      {
+        test: /\.json$/,
+        loader: 'json'
+      },
+      {
+        test: /\.svg$/,
+        loader: 'file',
+        query: {
+          name: 'static/media/[name].[hash:8].[ext]'
+        }
+      }
 		]
 	},
     postcss: function() {
